@@ -1,29 +1,16 @@
 #!/bin/bash
 
-if [ -z "$1" ]
-  then
-    echo "No 3 part network given , i.e. 113.22.35"
+read -p 'Enter IP address (eg: 192.168.3) : ' IPADDR 
+if [ $IPADDR == "" ]
+then
+echo "You forgot to input IP address!"
+echo "Syntax: ./ipscanner.sh 192.168.2"
+
 else
-    ipAddress=$1
+echo -e "\n"
+for ip in `seq 1 254`; do
+ping -c 1 $IPADDR.$ip | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" &
 
-    for i in {1..255} ;do 
-    (
-        {
-        ping -w 5 $ipAddress.$i ; 
-
- #store last run success result(0) 
-        result=$(echo $?);
-
- #clear all command output
-        } &> /dev/null
-
-
-#check if ping successful
-        if [ $result = 0 ]; then
-            echo  $ipAddress.$i : UP
-        else
-            echo  $ipAddress.$i : DOWN
-        fi &);
-    done
-
+done
 fi
+echo -e "\n$IPADDR scanning is done."
