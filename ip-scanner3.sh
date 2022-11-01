@@ -1,32 +1,24 @@
 #!/bin/bash
 
 if [ -z "$1" ]
-  then
-    echo "No 3 part network given , i.e. 113.22.35"
+then
+	echo "You forgot an IP address!"
+	echo "Syntax: ./ip-scanner3.sh 192.168.1"
+
 else
-    ipAddress=$1
-echo "ICMP Scan Result"
-    for i in {1..255} ;do 
-    (
-        {
-        ping -w 5 $ipAddress.$i;  
-
- #store last run success result(0) 
-        result=$(echo $?);
-
- #clear all command output
-        } &> /dev/null
+	echo -e "\n"
+	echo "ICMP Scan Result"
+	echo "================"
+	for ip in `seq 1 254`; do
+		ping -c 1 $1.$ip | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" &
+	done
 
 
-#check if ping successful
-        if [ $result = 0 ]; then
-            echo  $ipAddress.$i : UP
-        else
-            echo  $ipAddress.$i : DOWN
-        fi &);
-    done
-echo "SYN Scan Result"
-nmap -sn  ipAddress.0/24 -v -oG - 
+	echo -e "\n"
+	echo "SYN Scan Result"
+	echo "==============="
+	nmap -sn  $1.0/24 -oG - 
+
 fi
 
    
