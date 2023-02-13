@@ -9,4 +9,4 @@ export TERM=xterm
 #Allow tab etc
 press CTRL + Z (go background in linux)
 stty raw -echo;fg (get shell and return to session)
-
+press ENTER to get shell
