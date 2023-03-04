@@ -32,4 +32,12 @@ whoami
 whoami /priv
 
 whoami /groups
+
+net user
+
+net user jack
+
+net localgroup
+
+net localgroup 
 ```
