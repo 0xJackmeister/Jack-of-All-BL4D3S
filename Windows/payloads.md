@@ -24,3 +24,10 @@ wmic logicaldisk get caption,description,providername
 
 wmic logicaldisk get caption
 ```
+
+# Windows User info
+```
+whoami
+
+whoami /priv
+```
