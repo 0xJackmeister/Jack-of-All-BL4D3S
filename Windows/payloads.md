@@ -30,4 +30,6 @@ wmic logicaldisk get caption
 whoami
 
 whoami /priv
+
+whoami /groups
 ```
