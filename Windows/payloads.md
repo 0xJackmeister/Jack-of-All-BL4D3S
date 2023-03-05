@@ -42,7 +42,7 @@ net localgroup
 net localgroup administrators
 ```
 
-#Windows Network Enumeration 
+# Windows Network Enumeration 
 ```
 ipconfig
 
@@ -58,7 +58,7 @@ route print
 netstat -ano
 ```
 
-#Windows Password Hunting
+# Windows Password Hunting
 ```
 #find 'password' in current directory with extension of txt,ini and config
 findstr /si password *.txt *.ini *.config
