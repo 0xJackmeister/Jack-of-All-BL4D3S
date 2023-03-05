@@ -51,7 +51,7 @@ ipconfig /all
 #Check Incoming / Outgoing Network Traffic
 arp -a
 
-#check route table
+#Check route table
 route print
 
 #Check open ports
