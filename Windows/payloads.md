@@ -79,6 +79,8 @@ sc queryx type= service
 netsh advfirewall firewall dump
 netsh firewall show state 
 
+#Check FireWall configuration
+netsh firewall show config
 ```
 
 # References
