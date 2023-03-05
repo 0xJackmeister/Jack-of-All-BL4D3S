@@ -39,5 +39,5 @@ net user jack
 
 net localgroup
 
-net localgroup 
+net localgroup administrators
 ```
