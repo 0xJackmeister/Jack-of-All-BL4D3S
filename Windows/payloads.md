@@ -50,4 +50,7 @@ ipconfig /all
 
 #Check Incoming / Outgoing Network Traffic
 arp -a
+
+#check route table
+route print
 ```
