@@ -53,4 +53,7 @@ arp -a
 
 #check route table
 route print
+
+#Check open ports
+netstat -ano
 ```
