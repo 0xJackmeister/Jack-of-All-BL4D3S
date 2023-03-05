@@ -43,3 +43,11 @@ net localgroup administrators
 ```
 
 #Windows Network Enumeration 
+```
+ipconfig
+
+ipconfig /all
+
+<!-- Check Incoming / Outgoing Network Traffic -->
+arp -a
+```
