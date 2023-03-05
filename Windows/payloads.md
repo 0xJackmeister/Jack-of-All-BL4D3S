@@ -48,6 +48,6 @@ ipconfig
 
 ipconfig /all
 
-<!-- Check Incoming / Outgoing Network Traffic -->
+#Check Incoming / Outgoing Network Traffic
 arp -a
 ```
