@@ -12,7 +12,7 @@ set payload windows/meterpreter/reverse_tcp
 ```
 systeminfo
 
-systeminfo | findstr /b /c:"OS Name" /c:"OS Versoin" /c:"System Type"
+systeminfo | findstr /b /c:"OS Name" /c:"OS Version" /c:"System Type"
 
 wmic qfe
 
