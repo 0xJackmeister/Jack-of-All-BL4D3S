@@ -65,7 +65,15 @@ findstr /si password *.txt *.ini *.config
 
 #find 'password' in whole C: directory
 dir /s C:\* | findstr /i "password"
+```
 
+# AV Enumeration
+```
+#Check Window Defender is up or down
+sc query windefend
+
+#Check running services
+sc queryx type= service
 ```
 
 # References
@@ -77,6 +85,5 @@ https://sushant747.gitbooks.io/total-oscp-guide/content/privilege_escalation_win
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md
 
 https://book.hacktricks.xyz/windows-hardening/checklist-windows-privilege-escalation
-
 
 ```
