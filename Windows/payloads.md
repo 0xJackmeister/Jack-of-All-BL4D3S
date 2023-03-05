@@ -57,3 +57,13 @@ route print
 #Check open ports
 netstat -ano
 ```
+
+#Windows Password Hunting
+```
+#find 'password' in current directory with extension of txt,ini and config
+findstr /si password *.txt *.ini *.config
+
+#find 'password' in whole C: directory
+dir /s C:\* | findstr /i "password"
+
+```
