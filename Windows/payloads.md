@@ -74,6 +74,11 @@ sc query windefend
 
 #Check running services
 sc queryx type= service
+
+#Check FireWall Status
+netsh advfirewall firewall dump
+netsh firewall show state 
+
 ```
 
 # References
