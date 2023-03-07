@@ -115,6 +115,8 @@ icacls C:\Users\Administrator\Desktop\root.txt /grant username:F
 
 icacls C:\Windows\System32\net.exe /grant username:username:F
 
+"F" for Full control, "M" for Modify, "R" for Read, "W" for Write, "X" for Execute
+
 ```
 # References
 ```
