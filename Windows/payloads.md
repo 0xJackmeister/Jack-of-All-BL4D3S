@@ -102,4 +102,5 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20an
 
 https://book.hacktricks.xyz/windows-hardening/checklist-windows-privilege-escalation
 
+https://github.com/SecWiki/windows-kernel-exploits
 ```
