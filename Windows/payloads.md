@@ -108,6 +108,11 @@ netsh firewall show state
 netsh firewall show config
 ```
 
+# Read Permissions
+```
+#possible if user is also admin
+icacls C:\Users\Administrator\Desktop\root.txt /grant username:F
+```
 # References
 ```
 https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
