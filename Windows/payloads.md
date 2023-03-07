@@ -34,6 +34,9 @@ run SESSION=1
 ```
 systeminfo
 
+#32bit ? 64bit ? 68bit ?
+wmic os get osarchitecture
+
 systeminfo | findstr /b /c:"OS Name" /c:"OS Version" /c:"System Type"
 
 wmic qfe
