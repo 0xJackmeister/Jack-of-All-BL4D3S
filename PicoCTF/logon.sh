@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Login as user "joe" with any password and set cookie value "admin" from False to True
 curl 'https://jupiter.challenges.picoctf.org/problem/44573/flag' \
   -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8' \
   -H 'Accept-Language: en-US,en;q=0.8' \
