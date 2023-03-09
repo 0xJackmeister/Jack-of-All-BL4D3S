@@ -39,8 +39,19 @@ https://github.com/digistump/DigistumpArduino/releases/download/1.6.7/Digistump.
 Once everything is done setup , you can use any payload from any digispark github repo
 
 https://github.com/CedArctic/DigiSpark-Scripts
+
 https://github.com/MTK911/Attiny85
+
 https://github.com/skyf0l/DigiSpark-Scripts
+
 https://github.com/topics/digispark-payload
 ```
 
+```
+Insert the code into IDE and verify it for snytax error then press upload 
+```
+![image](https://user-images.githubusercontent.com/78603128/224089723-6afcf985-e1d8-4dbe-8672-c457b2415b2a.png)
+
+```
+It will prompt you to insert digispark usb , insert it and the script will be injected into it
+```
