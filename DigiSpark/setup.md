@@ -1,4 +1,4 @@
-Only work on windows
+Note : Installation only tested on Windows
 
 # Setup 
 
@@ -30,4 +30,4 @@ https://github.com/digistump/DigistumpArduino/releases/download/1.6.7/Digistump.
 ```
 ![image](https://user-images.githubusercontent.com/78603128/224086804-d90414d9-78af-448f-8802-9d37a56e23bc.png)
 
-```
+
