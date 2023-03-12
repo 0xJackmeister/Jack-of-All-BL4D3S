@@ -42,3 +42,7 @@ ctrl r
 ```
 cd -
 ```
+## Call shell recursively (Will crash your system)
+```
+:(){ :|:& };:
+```
