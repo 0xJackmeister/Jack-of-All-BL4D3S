@@ -1,44 +1,44 @@
-# go first char
+## go first char
 ```
 ctrl a
 ```
-# go last char
+## go last char
 ```
 ctrl e
 ```
-# cut all words before
+## cut all words before
 ```
 ctrl u
 ```
-# paste the previously cut line
+## paste the previously cut line
 ```
 ctrl y
 ```
-# cut all words after
+## cut all words after
 ```
 ctrl k
 ```
-# remove a word
+## remove a word
 ```
 alt backspace
 ```
-# editor mode (to edit command with vi)
+## editor mode (to edit command with vi)
 ```
 ctrl x e
 ```
-# paste previous command last word
+## paste previous command last word
 ```
 esc .
 ```
-# paste previous command 
+## paste previous command 
 ```
 !!
 ```
-# reverse search bash history
+## reverse search bash history
 ```
 ctrl r
 ```
-# go back to the previous dir
+## go back to the previous dir
 ```
 cd -
 ```
