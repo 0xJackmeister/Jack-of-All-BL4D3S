@@ -4,5 +4,4 @@
 
 ```
 sudo responder -I eth0 -dwv
-
 ```
