@@ -1,0 +1,8 @@
+uname -a
+/proc/version
+
+hostname
+
+/etc/issue
+
+uname -a

