@@ -5,7 +5,7 @@
 Welcome to Jack of All BL4D3S! This repository contains a collection of tools designed to help you solve repetitive problems. Whether you're a developer looking to automate tasks or a security researcher seeking to streamline your workflow, our tools have got you covered.
 
 # How to Use
-Getting started with Jack of All BL4D3S is easy. Simply follow these steps:
+Getting started with Jack of All BL4D3S is easy. Simply follow these steps :
 
 1. Clone the repository to your local machine using the following command:
 ```
