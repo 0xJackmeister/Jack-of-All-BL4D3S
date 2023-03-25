@@ -7,13 +7,13 @@ Welcome to Jack of All BL4D3S! This repository contains a collection of tools de
 # How to Use
 Getting started with Jack of All BL4D3S is easy. Simply follow these steps :
 
-1. Clone the repository to your local machine using the following command:
+1.  Clone the repository to your local machine using the following command:
 ```
 git clone https://github.com/J4CKMEISTER/Jack-of-All-BL4D3S.git
 ```
-2. Navigate to the directory containing the tool you wish to use.
+2.  Navigate to the directory containing the tool you wish to use.
 
-3. Read the documentation provided in the tool's README file to learn how to use it effectively.
+3.  Read the documentation provided in the tool's README file to learn how to use it effectively.
 
 That's it! With these simple steps, you can start using our tools to enhance your productivity and efficiency.
 
