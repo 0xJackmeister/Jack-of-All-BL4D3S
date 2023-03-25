@@ -1,0 +1,211 @@
+================================
+Base 32 :
+
+CONTAIN CHARACTERS ONLY !!
+
+It consists of 32-char set
+
+These char-sets are usually alphabet in uppercase. 
+
+==================================
+BASE 64: 
+
+Similar to 32 but longer but in upper and lower case alphabets
+
+
+contain 64 char-sets
+
+=================================
+HEX / BASE 16 :
+
+consist of bits of binary always char + digit like 6c 7a
+
+================================
+
+(ROT13)ROTATE 13 placess:
+
+IS A FORM OF CAESAR CYPER !!
+
+USE CAEASER !! DON USE 13 !
+
+
+============================== 
+ROT47 / ceaser :
+
+Rotate 47 palaces
+
+It encode almost all visible ASCII character.
+
+Got special characters 
+
+Randomized characters
+
+============================
+BCD(Binary code decimal):
+
+also can decode with decimal
+
+you will see normal number because its base10 encoding technique
+
+The message has a length multiple of 4 and non of the 4-bits group can contain 1111.
+
+=================================
+HASHES
+
+
+MD2:
+
+Consist of hex but without x , 03a 4a etc
+
+===================================
+
+MD5 / MD4 : like MD2 but longer 
+
++++++++++++++++++++++++++++++++++++++
+
+CHEAT SHEET
+
+Md2 	7f6f10d7574030bddf4592bb09c56022
+
+Md4 	1edea871502a0a1e77caf06712cede68
+
+Md5 	088deb7cb73089a3b7ae07734b3b4360
+
+Sha1 	7c7ddcf8004e0773292805d8c5e17e49a0d13328
+
+Sha224 	4fa093b91877a14023edafd0e998d405a207ebcf38139c1a26f2a8be
+
+Sha256 	d48a2f790f7294a4ecbac10b99a1a4271cdc67fff7246a314297f2bca2aaa71f
+
+Sha384 	94aec61402c812c561184c6d4a17b1574c8c3bfdefe2721dae65fbecf8fc5f18be602cd3d6915cee0c48787afaf6bb3b
+
+Sha512 	4348c2930473ffb4002d1c4358b6cf0bf4f977aec0a4112af71805a587c999dfe07f4f57037ce75b95eb921da7f4881f5db7b993c22aa770d098d5402f322eae
+
+Ripemd128 	a95ff653a48755ca0c67e31e892e2e68
+
+Ripemd160 	f1f3d55145a2bcce3be1c85dc2d3374759862ba5
+
+Ripemd256 	f55dc801237d815a432c93e3bce1b10be1d11ea2b046fb11091ddbceb285dde7
+
+Ripemd320 	e26dc0b0a4498d3d9b1a5cc177c4e258970ddbdf83cc0f604c65d78ef6f725a2c364f17fc6dab638
+
+Whirlpool 	1c860d59c9abd73b533062ee1c11a325a525bdea974de9975b967bc30a5465915cb684cc114977dd013a39baa62afa5ae1b5f68fcace973ec98a1d854595b48d
+
+Snefru 	56dcdd7e653f9eaa45ed4dc9f403b6ae
+
+Snefru256 	8d109aea82f9fb0c21b4d004c565b8ceb3ab94ea59fdd3783dd6e4151e6af5de
+
+Gost 	84d904bde0730694aba678f35d8f6bc96f7b15cd3cfc9817f92f5fed387ece00
+
+Adler32 	8e130a25
+
+Crc32 	1b40fb6d
+
+Crc32b 	7175a3ff
+
+Crc32b php 	ffa37571
+
+Fnv132 	577af00b
+
+Fnv164 	2926532c920e22cb
+
+Fnv1a32 	ac8a07b3
+
+Fnv1a52 	81c7c04e54935
+
+Fnv1a64 	994c39337798f8b3
+
+Fnv1a128 	233bfa997cc7c2efa041e34b2e10a993
+
+Fnv1a512 	604e0771cb561f867e587b7f90d46200ce1eee89f57d2a6ae02a2e583148b213aebe1896969afc86b1a9fd1164b4176a07336070d45f62b098db4bf46bcaf8eb
+
+Fnv1a1024 	62bd286df22a3bf814c20abb52d5f540af101d4581533c36773843e94072de12d829107072018a8865942e0000000000000000000000000000000000000000000a2cafe057016b9621acd97da76e8cb104b53408882c42216f43761ef1261f2f64b8cb9155ea935473ea08a7fd7f54aa06916fd697b3fa39c7beface43d86293
+
+Joaat php 	35dce48e
+
+Joaat 	593644dd
+
+Murmur3 	2f8f0f42
+
+Djb2 	963d4399
+
+Sdbm 	785242f4
+
+Loselose 	a24
+
+Pearson 	dc
+
+Farm hash fingerprint32 	c04f1af8
+
+Farm hash fingerprint64 	99d95f890efd1ec2
+
+Haval128,3 	d03bb1a6883fd42efa9cca33b9e6b49d
+
+Haval160,3 	18b152aac1c116776a4251d5ef39ed3f5cd41ba5
+
+
+Haval192,3 	bf81c794848a9d4400679abc60c3904fafc5a35701a484b5
+
+Haval224,3 	bfa39241934de062b8c359356d61c641a069f192dc4d45267734cc61
+
+Haval256,3 	54e4c0244cd64b46c31b3b9f33f76e0f501e5b020fda96b4da24c974b14fd95a
+
+
+Haval128,4 	2c254c14b3936f4355281447b10be997
+
+Haval160,4 	0319be2e8ff560540c40fddf3ccc52de41eecd91
+
+Haval192,4 	e9389946e795e3ea5d6cb6bcbd93051df56c339ddb0cefb6
+
+Haval224,4 	1010097752c5d3c5aa9628bd4d3655d2f7f75db6c0aa707bb53112c6
+
+Haval256,4 	7742efb05e33e1546942a37447d46d986f3a7e533c7f0d5178166103b78f575a
+
+Haval128,5 	6f11b03586d37b4ccd91c1a8e8bb3548
+
+Haval160,5 	2d38a3efa9aff4b28ce6339185bf68a24095448f
+
+Haval192,5 	05093103307d1ab972a2be484684557814dc9614a474f8da
+
+Haval224,5 	d9fa00e61fe085fad49c8fe0ec1445d47eedb1bc17f137f3a8f60dee
+
+Haval256,5 	353107d17ac612173ff7650a80c92820c90d1a348f56e28be9468915666810a2
+
+Tiger128 	59047239d4266b90f4104e3e11121d90
+
+Tiger160 	59047239d4266b90f4104e3e11121d90ad376f66
+
+Tiger192 	59047239d4266b90f4104e3e11121d90ad376f663426b019
+
+Tiger160,3 php 	906b26d439720459901d12113e4e10f419b02634
+
+Tiger128,4 	02cb41757d6c886b7d3a7d16cecb8bce
+
+Tiger160,4 	02cb41757d6c886b7d3a7d16cecb8bce31174597
+
+Tiger192,4 	02cb41757d6c886b7d3a7d16cecb8bce31174597234c0d7e
+
+Base64 	Q29tbW9ubHkgdXNlZCBpbiBCbG9ja2NoYWlu
+
+Tiger128,3 	906b26d439720459901d12113e4e10f4
+
+Tiger160,3 	906b26d439720459901d12113e4e10f4666f37ad
+
+Tiger192,3 	906b26d439720459901d12113e4e10f419b02634666f37ad
+
+Md5x2 	96f4994b35df1716c7ecffea420524f6
+
+Md5x3 	f79ab1688ff327d7d2f68886761af42f
+
+Md5x4 	bdef17bbb56ca7d3f846c8d60d5fc2ff
+
+Md5x5 	db42fb520a1c512b7cd3fa823d103b3f
+
+
+
+================================== 
+
+
+To extract files within a image ,
+
+binwalk -e filename.png/jpg	

