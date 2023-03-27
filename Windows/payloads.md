@@ -123,6 +123,8 @@ icacls C:\Windows\System32\net.exe /grant username:username:F
 where /R c:\windows bash.exe
 where /R c:\windows wsl.exe
 ```
+
+```
 # References
 ```
 https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
