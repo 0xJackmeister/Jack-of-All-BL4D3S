@@ -124,9 +124,17 @@ where /R c:\windows bash.exe
 where /R c:\windows wsl.exe
 ```
 
+# Login methods
 ```
+ psexec.py administrator:'password'@MACHINE_IP
+ 
+ smbexec.py administrator:'password'@MACHINE_IP
+ 
+ wmiexec.py administrator:'password'@MACHINE_IP
+```
+
 # References
-```
+
 https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 
 https://sushant747.gitbooks.io/total-oscp-guide/content/privilege_escalation_windows.html
@@ -136,4 +144,4 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20an
 https://book.hacktricks.xyz/windows-hardening/checklist-windows-privilege-escalation
 
 https://github.com/SecWiki/windows-kernel-exploits
-```
+
