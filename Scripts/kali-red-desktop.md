@@ -56,7 +56,7 @@ desktop-image: "kali_red.png"
 WALLPAPER=/boot/grub/themes/kali/kali_red.png
 
 5. chmod 644 background_ii.png
-3. sudo cp -r background_ii.png /boot/grub
-3. sudo update-grub
+6. sudo cp -r background_ii.png /boot/grub
+7. sudo update-grub
 ```
 
