@@ -45,3 +45,18 @@ sudo mv user-icon.ico /usr/share/backgrounds/ && chmod 555 user-icon.ico
 ```
 ## Locate LightDM GTK+ Greeter to change icon and login screen wallpaper
 
+# To change boot screen
+```
+1. chmod 644 kali_red.png
+2. sudo cp -r kali_red.png /boot/grub/themes/kali
+3. sudo nano theme.txt
+desktop-image: "kali_red.png"
+
+4. sudo nano grub_background.sh
+WALLPAPER=/boot/grub/themes/kali/kali_red.png
+
+5. chmod 644 background_ii.png
+3. sudo cp -r background_ii.png /boot/grub
+3. sudo update-grub
+```
+
