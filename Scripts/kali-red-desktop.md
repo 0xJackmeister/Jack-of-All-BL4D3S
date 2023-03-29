@@ -21,7 +21,9 @@ https://github.com/owerdogan/wallpapers-for-kali
 # Download login screen image
 <details>
   <summary>Kali Login wallpaper</summary>
+  
 ![red-kali-contours](https://user-images.githubusercontent.com/78603128/228484220-04a93200-1e2f-4803-b758-6727731832db.jpg)
+  
 </details>
 
 # Download login profile icon
