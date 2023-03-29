@@ -29,8 +29,11 @@ https://github.com/owerdogan/wallpapers-for-kali
 # Download login profile icon
 <details>
   <summary>Kali Login User icon</summary>
+  
 ![Screenshot_2023-03-29_160318-removebg-preview](https://user-images.githubusercontent.com/78603128/228484350-a8b13717-f237-4b49-8fd0-052c99319abd.png)
-  You will need to convert to .ico file 
+  
+## You will need to convert to .ico file 
+  
 https://convertico.com/
 </details>
 
