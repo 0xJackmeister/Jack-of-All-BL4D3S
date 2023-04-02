@@ -1,3 +1,7 @@
+## history
+```
+history | grep command
+```
 ## go first char
 ```
 ctrl a
