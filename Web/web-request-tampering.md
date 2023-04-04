@@ -1,4 +1,6 @@
-Hey, I think you are using X-Original-Url / X-Rewrite-Url vector in a wrong way. These headers usually help to bypass front server rules, which are based on URI, but you don't change URI while using these headers.
+# X-Original-Url / X-Rewrite-Url 
+
+Hey, I think you are using ```X-Original-Url / X-Rewrite-Url``` vector in a wrong way. These headers usually help to bypass front server rules, which are based on URI, but you don't change URI while using these headers.
 
 First, normal request returns 403:
 
