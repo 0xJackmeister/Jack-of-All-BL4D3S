@@ -5,3 +5,4 @@ do
   echo "$line"
   echo "peter"
 done < pass.txt
+# Remember set to send one request at a time to avoid getting banned
