@@ -121,6 +121,8 @@ findstr /si password *.txt *.ini *.config
 
 #find 'password' in whole C: directory
 dir /s C:\* | findstr /i "password"
+
+dir /r aka ls -la
 ```
 
 # AV Enumeration
