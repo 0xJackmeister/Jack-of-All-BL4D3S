@@ -123,6 +123,11 @@ findstr /si password *.txt *.ini *.config
 dir /s C:\* | findstr /i "password"
 
 dir /r aka ls -la
+
+#Finding credential location
+cmdkey /list
+
+runas /usr:ACCESS\Administrator /savecred cmd /c 
 ```
 
 # AV Enumeration
