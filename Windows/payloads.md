@@ -130,6 +130,12 @@ cmdkey /list
 runas /usr:ACCESS\Administrator /savecred cmd /c 
 ```
 
+# Credential Extracting
+```
+#cache files
+https://blog.harmj0y.net/redteaming/operational-guidance-for-offensive-user-dpapi-abuse/
+```
+
 # AV Enumeration
 ```
 #Check Window Defender is up or down
