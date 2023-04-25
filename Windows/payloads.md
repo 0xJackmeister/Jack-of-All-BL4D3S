@@ -170,6 +170,10 @@ dir /s C:\* | findstr /i "password"
 dir /r 
 dir /l /a 
 
+#Common sus file places
+C:\Users\Public
+C:\Users\Test\AppData\Roaming
+
 #Finding credential location
 cmdkey /list
 
