@@ -23,6 +23,15 @@ nc -nv TARGET_IP 1234 < received_file
 
 nc -nlvp 1234 > file_to_send
 
+On the receiving end running,
+
+nc -l -p 1234 > out.file
+will begin listening on port 1234.
+
+On the sending end running,
+
+nc -w 3 [destination] 1234 < out.file
+
 curl
 
 wget
