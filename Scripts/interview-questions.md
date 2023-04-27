@@ -1,4 +1,6 @@
+Question : How to react to data breach ?
 
+Answer :
 As a cybersecurity consultant, my immediate response to a data breach would be to follow the incident response plan that has been put in place by the organization. The following steps are recommended:
 
 _**Containment**_: 
