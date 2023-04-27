@@ -1,5 +1,7 @@
 # Spawn /bin/bash
 ```
+script /dev/null -c bash 
+
 python -c 'import pty;pty.spawn("/bin/bash")'
 
 python2 -c 'import pty;pty.spawn("/bin/bash")'
