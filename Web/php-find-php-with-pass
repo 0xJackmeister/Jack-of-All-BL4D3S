@@ -1,1 +1,5 @@
+#find all .php that contain "pass" in its file
 find / -type f -name "*.php" -print0 | xargs -0 grep -l "pass"
+
+#find all .png
+find / -type f -name "*.png" -print0 | xargs -0 -n1 echo
