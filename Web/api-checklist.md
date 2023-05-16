@@ -16,3 +16,6 @@
   "password": {"$ne": ""}
 }
 ```
+```
+{"username": {"$ne": null}, "password": {"$ne": null} }
+```
