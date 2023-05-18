@@ -247,6 +247,36 @@ netsh firewall show state
 netsh firewall show config
 ```
 
+# Bypass UAC
+```
+UAC = Prompt ask admin for confirmation yes and no
+
+System Configuration
+run "msconfig" can bypass the prompt
+then launch cmd = get system
+
+Authorization Manager
+run "azman.msc"
+Help -> Help Topics -> Right Click MMC -> view source
+
+File -> open -> go find cmd.exe at C:\Windows\System32 -> right click the icon
+
+Auto Elevate = no need prompt
+Conditions:
+Signed by windows publisher
+Inside trusted directory like System32 , ProgramFiles
+
+sigcheck : help identify auto-evelate on or off
+
+fodhelper : manage window additional language and more
+- no need gui can exec
+
+When checking HKEY_CLASSES_ROOT, if there is a user-specific association at HKEY_CURRENT_USER (HKCU), 
+it will take priority. If no user-specific association is configured, then the system-wide association 
+at HKEY_LOCAL_MACHINE (HKLM) will be used instead
+
+```
+
 # Read Permissions
 ```
 #possible if user is also admin
