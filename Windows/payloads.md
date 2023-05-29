@@ -127,8 +127,9 @@ systeminfo
 
 #32bit ? 64bit ? 68bit ?
 wmic os get osarchitecture
+```
 ![image](https://github.com/J4CKMEISTER/Jack-of-All-BL4D3S/assets/78603128/8cfbe647-00a2-4016-86b2-143e539bedde)
-
+```
 systeminfo | findstr /b /c:"OS Name" /c:"OS Version" /c:"System Type"
 
 wmic qfe
