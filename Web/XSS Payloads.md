@@ -1,3 +1,5 @@
+# XSS Payloads
+
 ```
 #Most payloads here work except against htmlspecialcharacters
 

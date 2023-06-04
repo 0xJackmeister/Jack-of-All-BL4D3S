@@ -1,4 +1,7 @@
-# Spawn /bin/bash
+# tty-interactive-shell
+
+## Spawn /bin/bash
+
 ```
 script /dev/null -c bash 
 
@@ -31,15 +34,17 @@ vi: :set shell=/bin/bash:shell
 nmap: !sh
 
 ```
-# Allow 'clear' command
+
+## Allow 'clear' command
+
 ```
 export TERM=xterm
 ```
-# Allow tab etc
+
+## Allow tab etc
+
 ```
 press CTRL + Z (go background in linux)
 stty raw -echo;fg (get shell and return to session)
 press ENTER to get shell
 ```
-
-

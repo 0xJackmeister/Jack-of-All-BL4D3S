@@ -1,3 +1,5 @@
+# openssh-as-server
+
 ```
 apt update && apt -y install ca-certificates wget net-tools gnupg
 wget https://as-repository.openvpn.net/as-repo-public.asc -qO /etc/apt/trusted.gpg.d/as-repository.asc

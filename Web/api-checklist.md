@@ -1,3 +1,5 @@
+# api-checklist
+
 ```
 {"$gt": ""}
 {"$gte": ""}
@@ -16,6 +18,7 @@
   "password": {"$ne": ""}
 }
 ```
+
 ```
 {"username": {"$ne": null}, "password": {"$ne": null} }
 ```

