@@ -154,6 +154,10 @@ run SESSION=1
 ```
 ## Window Suggester
 ```
+winpeas
+
+wesng
+
 Watson (For modern Windows 10)
 
 Sherlock (For older Windows XP / 2003)
