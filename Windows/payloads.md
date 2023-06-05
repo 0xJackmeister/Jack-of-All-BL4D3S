@@ -152,6 +152,24 @@ use post/multi/recon/local_exploit_suggester
 
 run SESSION=1
 ```
+## Window Suggester
+```
+Watson (For modern Windows 10)
+
+Sherlock (For older Windows XP / 2003)
+MS10-015 : User Mode to Ring (KiTrap0D)
+MS10-092 : Task Scheduler
+MS13-053 : NTUserMessageCall Win32k Kernel Pool Overflow
+MS13-081 : TrackPopupMenuEx Win32k NULL Page
+MS14-058 : TrackPopupMenu Win32k Null Pointer Dereference
+MS15-051 : ClientCopyImage Win32k
+MS15-078 : Font Driver Buffer Overflow
+MS16-016 : 'mrxdav.sys' WebDAV
+MS16-032 : Secondary Logon Handle
+MS16-034 : Windows Kernel-Mode Drivers EoP
+MS16-135 : Win32k Elevation of Privilege
+CVE-2017-7199 : Nessus Agent 6.6.2 - 6.10.3 Priv Esc
+```
 
 ## Windows System Enumeration
 
